@@ -127,7 +127,7 @@ const HeroSection = () => {
           <div className="flex-shrink-0 mt-8 lg:mt-0 flex justify-center lg:justify-end">
             <img 
               className="w-full max-w-75 sm:max-w-100 h-auto" 
-              src="/images/h2op_blue_red.png" 
+              src={`${import.meta.env.BASE_URL}/images/h2op_blue_red.png`} 
               alt="H2O Product" 
             />
           </div>
@@ -149,17 +149,17 @@ const ProductDisplay = () => {
   const features = [
     {
       name: 'Advanced Filtration',
-      title: 'H2OP Pro',
+      title: 'H2OP Gen 1',
       description: 'Revolutionary multi-stage filtration system that removes of contaminants while preserving essential minerals on the go.',
-      image: '/images/h2op_blue_internals.png',
+      image: `${import.meta.env.BASE_URL}/images/h2op_blue_internals.png`,
       icon: <Filter className="h-24 w-24 text-white" />,
       tags: ['5-STAGE FILTER', 'MINERAL RETENTION', 'FAST FLOW']
     },
     {
       name: 'Modular System',
-      title: 'H2OP Flex',
+      title: 'H2OP Gen 1',
       description: 'Adaptable design that grows with your needs. Stackable modules, adaptable capacities',
-      image: '/images/h2op_blue_exploded.png',
+      image: `${import.meta.env.BASE_URL}/images/h2op_blue_exploded.png`,
       icon: <Layers className="h-24 w-24 text-white" />,
       tags: ['STACKABLE', 'EXPANDABLE']
     }
@@ -322,13 +322,6 @@ const ComingSoonSection = () => {
         <h2 className="text-6xl lg:text-8xl font-light text-gray-900 mb-8 tracking-tight">
           Coming soon!
         </h2>
-        <p className="text-xl text-gray-600 font-light mb-16 tracking-wide">
-          This experience is under construction
-        </p>
-        
-        <p className="text-lg text-gray-600 font-light mb-12">
-          Stay in the loop — follow us on social media.
-        </p>
         
         <div className="flex justify-center space-x-6">
           {socialIcons.map(({ name, icon: Icon }) => (
@@ -346,47 +339,47 @@ const ComingSoonSection = () => {
 };
 
 // Specifications Section Component
-const SpecificationsSection = () => {
-  const specs = [
-    { label: "Weight", value: "340g" },
-    { label: "Dimensions", value: "25cm × 8cm × 8cm" },
-    { label: "Filter Life", value: "1000L / 265 gallons" },
-    { label: "Flow Rate", value: "1.7L per minute" },
-    { label: "Removes", value: "99.99% pathogens" },
-    { label: "Material", value: "BPA-free polymer" },
-    { label: "Temperature", value: "-10°C to 60°C" },
-    { label: "Warranty", value: "2 years limited" }
-  ];
+// const SpecificationsSection = () => {
+//   const specs = [
+//     { label: "Weight", value: "340g" },
+//     { label: "Dimensions", value: "25cm × 8cm × 8cm" },
+//     { label: "Filter Life", value: "1000L / 265 gallons" },
+//     { label: "Flow Rate", value: "1.7L per minute" },
+//     { label: "Removes", value: "99.99% pathogens" },
+//     { label: "Material", value: "BPA-free polymer" },
+//     { label: "Temperature", value: "-10°C to 60°C" },
+//     { label: "Warranty", value: "2 years limited" }
+//   ];
 
-  return (
-    <section id="specs" className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="text-center mb-20">
-          <h2 className="text-5xl font-light text-gray-900 mb-6 tracking-tight">
-            Technical Specifications
-          </h2>
-          <p className="text-xl text-gray-600 font-light">
-            Precision engineering for maximum performance
-          </p>
-        </div>
+//   return (
+//     <section id="specs" className="py-32 bg-white">
+//       <div className="max-w-7xl mx-auto px-8">
+//         <div className="text-center mb-20">
+//           <h2 className="text-5xl font-light text-gray-900 mb-6 tracking-tight">
+//             Technical Specifications
+//           </h2>
+//           <p className="text-xl text-gray-600 font-light">
+//             Precision engineering for maximum performance
+//           </p>
+//         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {specs.map((spec, index) => (
-              <div
-                key={index}
-                className="flex justify-between items-center py-6 border-b border-gray-100 hover:bg-gray-50/50 transition-all duration-300 px-6 rounded-lg group"
-              >
-                <span className="text-gray-700 font-light tracking-wide text-lg">{spec.label}</span>
-                <span className="text-gray-900 font-light text-lg group-hover:text-blue-600 transition-colors duration-300">{spec.value}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+//         <div className="max-w-4xl mx-auto">
+//           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+//             {specs.map((spec, index) => (
+//               <div
+//                 key={index}
+//                 className="flex justify-between items-center py-6 border-b border-gray-100 hover:bg-gray-50/50 transition-all duration-300 px-6 rounded-lg group"
+//               >
+//                 <span className="text-gray-700 font-light tracking-wide text-lg">{spec.label}</span>
+//                 <span className="text-gray-900 font-light text-lg group-hover:text-blue-600 transition-colors duration-300">{spec.value}</span>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
 
 // Reviews Section Component
 // const ReviewsSection = () => {
@@ -442,58 +435,51 @@ const SpecificationsSection = () => {
 // };
 
 // Contact Section Component
-const ContactSection = () => {
-  return (
-    <section id="contact" className="py-32 bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-[calc(50%-8rem)] left-[calc(-8rem)] w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-[calc(50%-8rem)] right-[calc(-8rem)] w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
-      </div>
+// const ContactSection = () => {
+//   return (
+//     <section id="contact" className="py-32 bg-gradient-to-b from-gray-900 to-black text-white relative overflow-hidden">
+//       {/* Background Elements */}
+//       <div className="absolute inset-0">
+//         <div className="absolute top-[calc(50%-8rem)] left-[calc(-8rem)] w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
+//         <div className="absolute top-[calc(50%-8rem)] right-[calc(-8rem)] w-64 h-64 bg-orange-500/20 rounded-full blur-3xl"></div>
+//       </div>
 
-      <div className="max-w-4xl mx-auto px-8 text-center relative z-10">
-        <h2 className="text-6xl font-light mb-8 tracking-tight">
-          Ready to Feel Pure?
-        </h2>
-        <p className="text-xl text-gray-300 font-light mb-16 tracking-wide">
-          Join the water purification revolution
-        </p>
+//       <div className="max-w-4xl mx-auto px-8 text-center relative z-10">
+//         <h2 className="text-6xl font-light mb-8 tracking-tight">
+//           Ready to Feel Pure?
+//         </h2>
+//         <p className="text-xl text-gray-300 font-light mb-16 tracking-wide">
+//           Join the water purification revolution
+//         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20">
-          <div className="text-center">
-            <div className="w-16 h-16 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center mx-auto mb-6">
-              <Phone className="h-8 w-8 text-blue-400" />
-            </div>
-            <h3 className="text-xl font-light mb-3 tracking-wide">Call Us</h3>
-            <p className="text-gray-300 font-light">+1 (555) 123-4567</p>
-          </div>
-          <div className="text-center">
-            <div className="w-16 h-16 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center mx-auto mb-6">
-              <Mail className="h-8 w-8 text-orange-400" />
-            </div>
-            <h3 className="text-xl font-light mb-3 tracking-wide">Email Us</h3>
-            <p className="text-gray-300 font-light">hello@aquapure.com</p>
-          </div>
-          <div className="text-center">
-            <div className="w-16 h-16 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center mx-auto mb-6">
-              <MapPin className="h-8 w-8 text-blue-400" />
-            </div>
-            <h3 className="text-xl font-light mb-3 tracking-wide">Visit Us</h3>
-            <p className="text-gray-300 font-light">San Francisco, CA</p>
-          </div>
-        </div>
+//         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+//           <div className="text-center">
+//             <div className="w-16 h-16 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center mx-auto mb-6">
+//               <Phone className="h-8 w-8 text-blue-400" />
+//             </div>
+//             <h3 className="text-xl font-light mb-3 tracking-wide">Call Us</h3>
+//             <p className="text-gray-300 font-light">+91 1234567890</p>
+//           </div>
+//           <div className="text-center">
+//             <div className="w-16 h-16 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center mx-auto mb-6">
+//               <Mail className="h-8 w-8 text-orange-400" />
+//             </div>
+//             <h3 className="text-xl font-light mb-3 tracking-wide">Email Us</h3>
+//             <p className="text-gray-300 font-light">hello@h2op.com</p>
+//           </div>
+//         </div>
 
-        <button className="bg-white text-gray-900 px-12 py-4 rounded-full font-light tracking-wide hover:bg-gray-100 transition-all duration-300 text-lg flex items-center space-x-3 mx-auto">
-          <span>LET'S TALK</span>
-          <ArrowRight className="w-5 h-5" />
-        </button>
-        <p className="text-gray-400 mt-8 font-light tracking-wide">
-          Free shipping worldwide • 30-day guarantee • Premium support
-        </p>
-      </div>
-    </section>
-  );
-};
+//         <button className="bg-white text-gray-900 px-12 py-4 rounded-full font-light tracking-wide hover:bg-gray-100 transition-all duration-300 text-lg flex items-center space-x-3 mx-auto">
+//           <span>LET'S TALK</span>
+//           <ArrowRight className="w-5 h-5" />
+//         </button>
+//         <p className="text-gray-400 mt-8 font-light tracking-wide">
+//           Free shipping worldwide • 30-day guarantee • Premium support
+//         </p>
+//       </div>
+//     </section>
+//   );
+// };
 
 // Footer Component
 const Footer = () => {
@@ -508,7 +494,7 @@ const Footer = () => {
               <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
             </div>
             <div className="w-px h-6 bg-gray-600"></div>
-            <span className="text-xl font-light tracking-wide">AquaPure</span>
+            <span className="text-xl font-light tracking-wide">H2OP</span>
           </div>
           <div className="flex items-center space-x-6">
             <button className="text-gray-400 hover:text-white transition-colors duration-300">
@@ -519,7 +505,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-gray-800 mt-12 pt-8 text-center">
           <p className="text-gray-400 font-light tracking-wide">
-            © 2025 AquaPure. All rights reserved.
+            © 2025 H2OP. All rights reserved.
           </p>
         </div>
       </div>
@@ -536,9 +522,9 @@ const App = () => {
       <ProductDisplay />
       <FeaturesSection />
       <ComingSoonSection />
-      <SpecificationsSection />
+      {/* <SpecificationsSection /> */}
       {/* <ReviewsSection /> */}
-      <ContactSection />
+      {/* <ContactSection /> */}
       <Footer />
     </div>
   );
